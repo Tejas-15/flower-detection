@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<style>
+		.wrapper { 
+		height: 100%;
+		width: 100%;
+		left:0;
+		right: 0;
+		top: 0;
+		bottom: 0;
+		position: absolute;
+	  background: linear-gradient(124deg, #ff2400, #e81d1d, #e8b71d, #e3e81d, #1de840, #1ddde8, #2b1de8, #dd00f3, #dd00f3);
+	  background-size: 1800% 1800%;
+	  
+	  -webkit-animation: rainbow 18s ease infinite;
+	  -z-animation: rainbow 18s ease infinite;
+	  -o-animation: rainbow 18s ease infinite;
+		animation: rainbow 18s ease infinite;}
+	  
+	  @-webkit-keyframes rainbow {
+		  0%{background-position:0% 82%}
+		  50%{background-position:100% 19%}
+		  100%{background-position:0% 82%}
+	  }
+	  @-moz-keyframes rainbow {
+		  0%{background-position:0% 82%}
+		  50%{background-position:100% 19%}
+		  100%{background-position:0% 82%}
+	  }
+	  @-o-keyframes rainbow {
+		  0%{background-position:0% 82%}
+		  50%{background-position:100% 19%}
+		  100%{background-position:0% 82%}
+	  }
+	  @keyframes rainbow { 
+		  0%{background-position:0% 82%}
+		  50%{background-position:100% 19%}
+		  100%{background-position:0% 82%}
+	  }
+	</style>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="base.css">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+	
+	<title>Flower Detection</title>
+</head>
+<body>
+	<div class = wrapper>
+		<nav class="navbar navbar-dark bg-dark">
+		<!-- <nav class="navbar navbar-expand-lg navbar-light background-color:#e3f2fd;"> -->
+		<div class="container-fluid">
+			<a class="abc">test</a>
+			<a class="navbar-brand" href="{% url 'main_home' %}">FLOWER DETECTION</a>
+			<a class="navbar-brand-link active me-auto" href="{% url 'test_home' %}" style = "font-size :25px ; color : red" >About</a>
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+				data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+					<li class="nav-item">
+						<a class="nav-link active" aria-current="page" href="{% url 'main_home' %}">Home</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link active" href="{% url 'test_home' %}">about</a>
+					</li>
+					<div class="dropdown my-2">
+						<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
+							data-bs-toggle="dropdown" aria-expanded="false">
+							Type of Flowers
+						</button>
+						<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+							<li><a class="dropdown-item" href="{% url 'daisy' %}">Daisy</a></li>
+							<li><a class="dropdown-item" href="{% url 'yellow_rose' %}">Yellow Rose</a></li>
+							<li><a class="dropdown-item" href="{% url 'pink_rose' %}">Pink Rose</a></li>
+							<li>
+								<hr class="dropdown-divider">
+							</li>
+							<li><a class="dropdown-item" href="#">Something else here</a></li>
+						</ul>
+					</div>
+				</ul>
+				<form class="d-flex">
+					<input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+					<button class="btn btn-outline-success" type="submit">Search</button>
+				</form>
+			</div>
+		</div>
+	</nav>
+	<div class="container-fluid">
+		{% block content %} {% endblock %}
+	</div
+	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js"
+		integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT"
+		crossorigin="anonymous"></script>
+	</div>
+</body>
+</html>
