@@ -2,9 +2,10 @@
 {% block content %}
     <div class="container">
             <h1>Upload</h1>
-            <from method="post" enctype="multipart/form-data">
+            <from action="upload" method="post" enctype="multipart/form-data">
                 {% csrf_token %}
                 <input type="file" name="document">
                 <button type="submit"> Upload File</button>
+                <button id="stat-btn" class="btn">PRESS ME </button>
             </form> 
 {% endblock content %}

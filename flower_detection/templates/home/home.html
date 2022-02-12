@@ -4,7 +4,7 @@
 	<head>
 		<!-- <#slider> -->
 		
-		<div class="container">
+		<div class="container my-5">
 			<div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
 				<div class="carousel-indicators">
 					<button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active"
@@ -13,26 +13,35 @@
 						aria-label="Slide 2"></button>
 					<button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2"
 						aria-label="Slide 3"></button>
+					<button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="3"
+						aria-label="Slide 4"></button>	
 				</div>
 				<div class="carousel-inner">
 					<div class="carousel-item active">
-						<img src="../../static/daisy cartoon.png" class="rounded mx-auto my-5 d-block w-99" alt="...">
+						<img src="../../static/daisy-cartoon-slider.png" class="rounded mx-auto my-5 d-block w-99" alt="...">
 						<div class="carousel-caption d-none d-md-block">
 							<h5>Daisy</h5>
 							<p>Some representative placeholder content for the first slide.</p>
 						</div>
 					</div>
 					<div class="carousel-item">
-						<img src="../../static/Sunflower.png"  class="rounded mx-auto my-5 d-block w-99" alt="...">
+						<img src="../../static/Sunflower-slider.png"  class="rounded mx-auto my-5 d-block w-99" alt="...">
 						<div class="carousel-caption d-none d-md-block">
 							<h5>Sunflower</h5>
 							<p>Some representative placeholder content for the second slide.</p>
 						</div>
 					</div>
 					<div class="carousel-item">
-						<img src="../../static/Rose.png" class="rounded mx-auto my-5 d-block w-99" alt="...">
+						<img src="../../static/Rose-slider.png" class="rounded mx-auto my-5 d-block w-99" alt="...">
 						<div class="carousel-caption d-none d-md-block ">
 							<h5>Rose</h5>
+							<p>Some representative placeholder content for the third slide.</p>
+						</div>
+					</div>
+					<div class="carousel-item">
+						<img src="../../static/dandelion-slider.png" class="rounded mx-auto my-5 d-block w-99" alt="...">
+						<div class="carousel-caption d-none d-md-block ">
+							<h5>dandelion</h5>
 							<p>Some representative placeholder content for the third slide.</p>
 						</div>
 					</div>
@@ -65,12 +74,15 @@
 
 
 		{% comment %} upload button {% endcomment %}
-		<div class="container">
+		<div class="container ">
 			<div class="col-md-12 my-5 text-center">
-				<from action="/upload" method="POST" enctype="multipart/form-data">
+				<from action="/formsubmission" method="POST" enctype="multipart/form-data">
 					{% csrf_token %}
-					<input type="file" name="document">
+					{{forms.as_p}}
+					<!-- <input type="file" name="document"> -->
 					<button type="submit"> Upload File</button>
+				<!-- <form action="/upload">
+					<button id="stat-btn" class="btn">PRESS ME </button>	 -->
 				</form>
 			</div>
 		</div>	
@@ -92,23 +104,33 @@
 					<div class="card" style="width: 18rem;">
 						<img src="../../static/rose1.jpg" class="card-img-top" alt="...">
 						<div class="card-body">
-							<h5 class="card-title">yellow rose</h5>
+							<h5 class="card-title">Rose</h5>
 							<p class="card-text">this will give info of yellow rose.</p>
+							<a href="{% url 'rose' %}" class="btn btn-primary">Go somewhere</a>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-3 ">
+					<div class="card" style="width: 18rem;">
+						<img src="../../static/dandelion.jfif" class="card-img-top" alt="...">
+						<div class="card-body">
+							<h5 class="card-title">Dandelion</h5>
+							<p class="card-text">this will give info of dandelion.</p>
 							<a href="{% url 'yellow_rose' %}" class="btn btn-primary">Go somewhere</a>
 						</div>
 					</div>
 				</div>
 				<div class="col-sm-3 ">
 					<div class="card" style="width: 18rem;">
-						<img src="../../static/rose3.jpg" class="card-img-top" alt="...">
+						<img src="../../static/sun.jpg" class="card-img-top" alt="...">
 						<div class="card-body">
-							<h5 class="card-title">Pink rose</h5>
-							<p class="card-text">
-								</p>
-							<a href="{% url 'pink_rose' %}" class="btn btn-primary">Go somewhere</a>
+							<h5 class="card-title">Sunflower</h5>
+							<p class="card-text">type something</p>
+							<a href="{% url 'rose' %}" class="btn btn-primary">Go somewhere</a>
 						</div>
 					</div>
-				</div
+				</div>
+				<h1>hii</h1>
 			</div>
 		</div>
 		<div class="container">

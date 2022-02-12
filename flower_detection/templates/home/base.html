@@ -38,67 +38,92 @@
 		  50%{background-position:100% 19%}
 		  100%{background-position:0% 82%}
 	  }
+
+    /* styling part of slider */
+           
+    .sidenav {
+      height: 100%;
+      width: 0;
+      position: fixed;
+      z-index: 1;
+      top: 0;
+      left: 0;
+      background-color: #111;
+      overflow-x: hidden;
+      transition: 0.5s;
+      padding-top: 60px;
+    }
+    
+    .sidenav a {
+      padding: 8px 8px 8px 32px;
+      text-decoration: none;
+      font-size: 25px;
+      color: #818181;
+      display: block;
+      transition: 0.3s;
+    }
+    
+    .sidenav a:hover {
+      color: #f1f1f1;
+    }
+    
+    .sidenav .closebtn {
+      position: absolute;
+      top: 0;
+      right: 25px;
+      font-size: 36px;
+      margin-left: 50px;
+    }
+    
+    @media screen and (max-height: 450px) {
+      .sidenav {padding-top: 15px;}
+      .sidenav a {font-size: 18px;}
+    }
 	</style>
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="base.css">
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
 		integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
-	
+
 	<title>Flower Detection</title>
 </head>
 <body>
-	<div class = wrapper>
-		<nav class="navbar navbar-dark bg-dark">
-		<!-- <nav class="navbar navbar-expand-lg navbar-light background-color:#e3f2fd;"> -->
-		<div class="container-fluid">
-			<a class="abc">test</a>
-			<a class="navbar-brand" href="{% url 'main_home' %}">FLOWER DETECTION</a>
-			<a class="navbar-brand-link active me-auto" href="{% url 'test_home' %}" style = "font-size :25px ; color : red" >About</a>
-			<button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-				data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-				aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
-			<div class="collapse navbar-collapse" id="navbarSupportedContent">
-				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
-					<li class="nav-item">
-						<a class="nav-link active" aria-current="page" href="{% url 'main_home' %}">Home</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link active" href="{% url 'test_home' %}">about</a>
-					</li>
-					<div class="dropdown my-2">
-						<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
-							data-bs-toggle="dropdown" aria-expanded="false">
-							Type of Flowers
-						</button>
-						<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-							<li><a class="dropdown-item" href="{% url 'daisy' %}">Daisy</a></li>
-							<li><a class="dropdown-item" href="{% url 'yellow_rose' %}">Yellow Rose</a></li>
-							<li><a class="dropdown-item" href="{% url 'pink_rose' %}">Pink Rose</a></li>
-							<li>
-								<hr class="dropdown-divider">
-							</li>
-							<li><a class="dropdown-item" href="#">Something else here</a></li>
-						</ul>
-					</div>
-				</ul>
-				<form class="d-flex">
-					<input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-					<button class="btn btn-outline-success" type="submit">Search</button>
-				</form>
-			</div>
+   <!-- <div class = wrapper> -->
+    	<nav class="navbar navbar-dark bg-dark">
+        
+            <div id="mySidenav" class="sidenav">
+              <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"> &times;</a>
+              <a href="{% url 'About' %}">About</a>
+              <a href="#">Services</a>
+              <a href="#">Clients</a>
+              <a href="#">Contact</a>
+            </div>
+           
+            
+            <a style="font-size:30px; cursor:pointer; color: white;" onclick="openNav()">&#9776; </a>
+            <a class="navbar-brand " href="{% url 'main_home' %}" style="font-size:30px;">FLOWER DETECTION</a>
+            <span > </span>
+		  </nav>
+	  <!-- </div> -->
+
+    
+    <div class="container-fluid">
+            {% block content %} {% endblock %}
 		</div>
-	</nav>
-	<div class="container-fluid">
-		{% block content %} {% endblock %}
-	</div
-	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js"
-		integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT"
-		crossorigin="anonymous"></script>
-	</div>
+      <script>
+        function openNav() {
+          document.getElementById("mySidenav").style.width = "250px";
+        }
+        
+        function closeNav() {
+          document.getElementById("mySidenav").style.width = "0";
+        }
+      </script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js"
+            integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT"
+            crossorigin="anonymous"></script>
+        </div>
 </body>
 </html>
