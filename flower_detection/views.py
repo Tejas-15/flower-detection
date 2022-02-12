@@ -1,5 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+
+#models
 from .models import Info
 
 #tenserflow
@@ -11,8 +13,7 @@ from keras.models import load_model
 from keras.preprocessing import image
 import tensorflow as tf
 
-#models
-from flower_detection.models import Info
+
 
 # #upload 
 # from flower_detection.forms import upload
@@ -33,26 +34,7 @@ def home(request):
 def About(request):
 	return render(request, 'home/About.html')
 
-def daisy(request):
-	return render(request, 'home/daisy.html')
-
-def yellow_rose(request):
-	return render(request, 'home/yellow_rose.html')
-
-def rose(request):
-	all_Info = Info.objects.all
-	return render(request, 'home/rose.html',{'all':all_Info})
-
-def hometest(request):
-	return render(request, 'home/test3.html')	
-
-def	flower_info(request):
-	f_info = Info.objects.get(pk=1)
-	print('Myoutput',f_info)
-	return render(request, 'home/test1.html',{'info':f_info})
-
-
-def Test1(request):
+def dectection(request):
 	def predict():
 		num_classes = 5
 
@@ -70,7 +52,7 @@ def Test1(request):
 		])
 	
 		model = load_model(r"flower_detection\flower_api_model.h5")
-		validation_image = image.load_img(r"C:\Users\tkada\OneDrive\Documents\Tejas Clg\Projects\object detection\New folder\dandaliom\gettyimages-947528850-612x612.jpg", target_size=(180,180))
+		validation_image = image.load_img(r"C:\Users\tkada\OneDrive\Documents\Tejas Clg\Projects\Django_Gui\Django_Gui\flower_detection\static\rose3.jpg", target_size=(180,180))
 		validation_image = image.img_to_array(validation_image)
 		validation_image = np.expand_dims(validation_image,axis=0)
 		result = model.predict(validation_image)
@@ -84,11 +66,11 @@ def Test1(request):
 		global flowername
 		cn=np.argmax(y_predicted[0])
 		if cn==0 :
-			flowername =  'daisy'
+			flowername =  'Daisy'
 		elif cn==1 :
 			flowername ='dandelion'
 		elif cn==2 :
-			flowername ='Rose'
+			flowername ='rose'
 		elif cn==3 :
 			flowername = 'sunflower'
 		elif cn==4 :
@@ -97,11 +79,13 @@ def Test1(request):
 	context = {	
 			"flower_name" : flowername
 		}
-	if 	flowername ==  'daisy' :
-		return render(request, 'home/daisy.html',context)
-	elif 	flowername == 'dandelion' :
-		return render(request, 'home/yellow_rose.html',context)
+
+	print(flowername)
+	f_Info = Info.objects.get(Flower_name=flowername)
+	return render(request, 'home/detected.html',{'info':f_Info})
 		
+
+
 # def formsubmission(request):
 # 	print("hi")
 # 	form=upload()
