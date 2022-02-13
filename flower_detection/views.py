@@ -52,7 +52,7 @@ def dectection(request):
 		])
 	
 		model = load_model(r"flower_detection\flower_api_model.h5")
-		validation_image = image.load_img(r"C:\Users\tkada\OneDrive\Documents\Tejas Clg\Projects\Django_Gui\Django_Gui\flower_detection\static\rose3.jpg", target_size=(180,180))
+		validation_image = image.load_img(r"C:\Users\tkada\OneDrive\Documents\Tejas Clg\Projects\Django_Gui\Django_Gui\flower_detection\static\Tulip.jpg", target_size=(180,180))
 		validation_image = image.img_to_array(validation_image)
 		validation_image = np.expand_dims(validation_image,axis=0)
 		result = model.predict(validation_image)
