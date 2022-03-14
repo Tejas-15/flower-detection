@@ -84,59 +84,66 @@
 				<!-- <form action="/upload">
 					<button id="stat-btn" class="btn">PRESS ME </button>	 -->
 				</form>
+				<div class="container">
+					<form action="/Test1">
+						<button id="stat-btn" class="btn">PRESS ME </button>
+					</form>	
+				</div>
 			</div>
 		</div>	
 		{% comment %} cards {% endcomment %}
+			
 		<div class="container">
-			<div class="row">
-				<div class="col-sm-3 ">
-					<div class="card" style="width: 18rem;">
-						<img src="../../static/daisy.jpg" class="card-img-top" alt="...">
-						<div class="card-body">
-							<h5 class="card-title">Daisy</h5>
-							<p class="card-text">daisy is a flower.
-							which is white</p>
-							<a href="" class="btn btn-primary">Go somewhere</a>
-						</div>	
+			
+				<div class="row">
+					<div class="col-sm-3 ">
+						<div class="card" style="width: 18rem;">
+							<img src="../../static/daisy.jpg" class="card-img-top" alt="...">
+							<div class="card-body">
+								<h5 class="card-title">Daisy</h5>
+								<h1 style="font-weight: bold;">{{info.Flower_name}}</h1>
+								<p class="card-text">daisy is a flower.
+								which is white</p>
+								<a href="" class="btn btn-primary">Go somewhere</a>
+							</div>	
+						</div>
 					</div>
-				</div>
-				<div class="col-sm-3 ">
-					<div class="card" style="width: 18rem;">
-						<img src="../../static/rose1.jpg" class="card-img-top" alt="...">
-						<div class="card-body">
-							<h5 class="card-title">Rose</h5>
-							<p class="card-text">this will give info of yellow rose.</p>
-							<a href="" class="btn btn-primary">Go somewhere</a>
+					<div class="col-sm-3 ">
+						<div class="card" style="width: 18rem;">
+							<img src="../../static/rose1.jpg" class="card-img-top" alt="...">
+							<div class="card-body">
+								
+								<h5 class="card-title">Rose</h5>
+								<p class="card-text">this will give info of yellow rose.</p>
+								<a href="" class="btn btn-primary">Go somewhere</a>
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-3 ">
+						<div class="card" style="width: 18rem;">
+							<img src="../../static/dandelion.jfif" class="card-img-top" alt="...">
+							<div class="card-body">
+								<h5 class="card-title">Dandelion</h5>
+								<p class="card-text">this will give info of dandelion.</p>
+								<a href="" class="btn btn-primary">Go somewhere</a>
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-3 ">
+						<div class="card" style="width: 18rem;">
+							<img src="../../static/sun.jpg" class="card-img-top" alt="...">
+							<div class="card-body">
+								<h5 class="card-title">Sunflower</h5>
+								<p class="card-text">type something</p>
+								<a href="" class="btn btn-primary">Go somewhere</a>
+							</div>
 						</div>
 					</div>
 				</div>
-				<div class="col-sm-3 ">
-					<div class="card" style="width: 18rem;">
-						<img src="../../static/dandelion.jfif" class="card-img-top" alt="...">
-						<div class="card-body">
-							<h5 class="card-title">Dandelion</h5>
-							<p class="card-text">this will give info of dandelion.</p>
-							<a href="" class="btn btn-primary">Go somewhere</a>
-						</div>
-					</div>
-				</div>
-				<div class="col-sm-3 ">
-					<div class="card" style="width: 18rem;">
-						<img src="../../static/sun.jpg" class="card-img-top" alt="...">
-						<div class="card-body">
-							<h5 class="card-title">Sunflower</h5>
-							<p class="card-text">type something</p>
-							<a href="" class="btn btn-primary">Go somewhere</a>
-						</div>
-					</div>
-				</div>
-				<h1>hii</h1>
-			</div>
+			 	
 		</div>
-		<div class="container">
-			<form action="/Test1">
-				<button id="stat-btn" class="btn">PRESS ME </button>
-			</form>	
-		</div>
-	</head>	
+		
+
+
+	</head>
 {% endblock content %}

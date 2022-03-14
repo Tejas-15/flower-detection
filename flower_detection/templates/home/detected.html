@@ -1,4 +1,5 @@
 {% extends "home/base.html" %}
+{% load static %}
 {% block content %}
 
               
@@ -146,9 +147,15 @@
             <h1><span class="mw-headline" id="Season to grow">Season to grow</span><span class="mw-editsection"><span
                 class="mw-editsection-bracket"></h1>
                     <h5>{{ info.Season_to_grow }}</h5>
+                    <h5>{{info.Img }}</h5>
+                    
+                        <td>
+                            <img src="{{.info.Img.url}}" alt="" class="img-responsive" style="width: 100%; float: left; margin-right: 10px;" />
+                        </td>
+                   
                     
             <h1><span class="mw-headline" id="See_also">See_also</span><span class="mw-editsection"><span
-                class="mw-editsection-bracket"></h1>
+                class="mw-editsection-bracket"></h1>  
                             
             <h1><span class="mw-headline" id="References">References</span><span class="mw-editsection"><span
                 class="mw-editsection-bracket"></h1>	

@@ -1,8 +1,11 @@
+
 from django.shortcuts import render
 from django.http import HttpResponse
 
 #models
 from .models import Info
+from .models import predict
+
 
 #tenserflow
 from tensorflow.python.eager.context import context
@@ -22,7 +25,11 @@ import tensorflow as tf
 
 # Create your views here.
 def home(request):
-	return render(request, 'home/home.html')
+	p_data = predict.objects.get(pk=1)
+	global path
+	path = p_data.Img_pre
+	print(path)
+	return render(request, 'home/home.html',{'data':p_data})
 
 # def upload(request):
 # 	print("hi")
@@ -34,7 +41,15 @@ def home(request):
 def About(request):
 	return render(request, 'home/About.html')
 
+# def	data(request):
+	
+# 	# print(p_Info.Img_pre)
+# 	# print(flowername)
+# 	return render(request, 'home/about.html')
+
 def dectection(request):
+	
+	
 	def predict():
 		num_classes = 5
 
@@ -52,7 +67,7 @@ def dectection(request):
 		])
 	
 		model = load_model(r"flower_detection\flower_api_model.h5")
-		validation_image = image.load_img(r"C:\Users\tkada\OneDrive\Documents\Tejas Clg\Projects\Django_Gui\Django_Gui\flower_detection\static\Tulip.jpg", target_size=(180,180))
+		validation_image = image.load_img(r"C:\Users\tkada\OneDrive\Documents\Tejas Clg\Projects\Django_Gui\Django_Gui\media\images\rose1.jpg" , target_size=(180,180))
 		validation_image = image.img_to_array(validation_image)
 		validation_image = np.expand_dims(validation_image,axis=0)
 		result = model.predict(validation_image)
@@ -80,9 +95,16 @@ def dectection(request):
 			"flower_name" : flowername
 		}
 
+	print(path)
 	print(flowername)
+
+
 	f_Info = Info.objects.get(Flower_name=flowername)
+	
+	print(f_Info.Img)
+	
 	return render(request, 'home/detected.html',{'info':f_Info})
+	
 		
 
 

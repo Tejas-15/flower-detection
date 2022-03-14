@@ -21,10 +21,14 @@ class Info(models.Model):
     Perfumes_food = models.TextField()
     Symbolizes = models.TextField()
     Season_to_grow = models.TextField()
-#     Image_flower = models.ImageField(null=True, blank=True, upload_to")
+    Img = models.ImageField(upload_to='images/')
 
     def __str__(self):
         return self.Flower_name
 
-# class Upload_img(models.Model): 
-#     Uploaded_image = models.ImageField() 
+class predict(models.Model):
+    Flower_name = models.CharField(max_length=50)
+    Img_pre = models.ImageField(null=True, blank=True, upload_to="pre/")
+
+    def __str__(self):
+        return self.Flower_name

@@ -1,6 +1,11 @@
 {% extends "home/base.html" %}
 {% block content %}
+<!-- <p>{{ data }}</p> -->
     <div class="container">
-            <h1>danda</h1>
+
+            {% if data %}
+            <h1 style="font-weight: bold;">{{data.Flower_name}}</h1>
+            {% endif %} 
+            <h1>hii</h1>
     </div>
 {% endblock content %}
