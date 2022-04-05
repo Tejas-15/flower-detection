@@ -1,4 +1,7 @@
 from django import forms
+from .models import predict
 
-class upload(forms.Form):
-    file=forms.FileField()
+class predictForm(forms.ModelForm):
+    class Meta:
+        model = predict
+        field = ['Flower_name','Img_pre']

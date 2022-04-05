@@ -1,11 +1,13 @@
 
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 
 #models
 from .models import Info
 from .models import predict
 
+
+from .forms import *
 
 #tenserflow
 from tensorflow.python.eager.context import context
@@ -31,12 +33,19 @@ def home(request):
 	print(path)
 	return render(request, 'home/home.html',{'data':p_data})
 
+def info(request):
+	return render(request, 'home/info.html')
+
 # def upload(request):
-# 	print("hi")
 # 	if request.method =='POST':
-# 		uploaded_file = request.FILES['document']
-# 		print(uploaded_file.name)
-# 	return render(request, 'home/upload.html')
+# 		form = predictForm(request.POST, request.FILES)
+
+# 		if form.is_valid():
+# 			form.save()
+# 			return redirect('success')
+# 	else:
+# 		form =	predictForm()
+# 	return render(request, 'home/home.html', {'form' : form})
  
 def About(request):
 	return render(request, 'home/About.html')
@@ -96,14 +105,16 @@ def dectection(request):
 		}
 
 	print(path)
+	print(type(path))
 	print(flowername)
 
-
-	f_Info = Info.objects.get(Flower_name=flowername)
+	if request.method == 'GET':
+		f_Info = Info.objects.get(Flower_name=flowername)
+		
+		print(f_Info.Img)
+		print(type(f_Info.Img))
 	
-	print(f_Info.Img)
-	
-	return render(request, 'home/detected.html',{'info':f_Info})
+		return render(request, 'home/detected.html',{'info':f_Info})
 	
 		
 
