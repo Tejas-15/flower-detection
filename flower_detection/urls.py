@@ -6,6 +6,6 @@ urlpatterns = [
     path('About/', views.About , name='About'),
     # path('About/', views.data , name='About'),
     path('Test1/', views.dectection , name='Test1'),
-
+    path('info/', views.info , name='info'),
     
 ]

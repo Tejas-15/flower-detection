@@ -76,14 +76,12 @@
 		{% comment %} upload button {% endcomment %}
 		<div class="container ">
 			<div class="col-md-12 my-5 text-center">
-				<from action="/formsubmission" method="POST" enctype="multipart/form-data">
+ 				<form method = "post" enctype="multipart/form-data">
 					{% csrf_token %}
-					{{forms.as_p}}
-					<!-- <input type="file" name="document"> -->
-					<button type="submit"> Upload File</button>
-				<!-- <form action="/upload">
-					<button id="stat-btn" class="btn">PRESS ME </button>	 -->
+					{{ form.as_p }}
+					<button type="submit">Upload</button>
 				</form>
+				
 				<div class="container">
 					<form action="/Test1">
 						<button id="stat-btn" class="btn">PRESS ME </button>
@@ -95,52 +93,54 @@
 			
 		<div class="container">
 			
-				<div class="row">
-					<div class="col-sm-3 ">
-						<div class="card" style="width: 18rem;">
-							<img src="../../static/daisy.jpg" class="card-img-top" alt="...">
-							<div class="card-body">
-								<h5 class="card-title">Daisy</h5>
-								<h1 style="font-weight: bold;">{{info.Flower_name}}</h1>
-								<p class="card-text">daisy is a flower.
-								which is white</p>
-								<a href="" class="btn btn-primary">Go somewhere</a>
-							</div>	
-						</div>
-					</div>
-					<div class="col-sm-3 ">
-						<div class="card" style="width: 18rem;">
-							<img src="../../static/rose1.jpg" class="card-img-top" alt="...">
-							<div class="card-body">
-								
-								<h5 class="card-title">Rose</h5>
-								<p class="card-text">this will give info of yellow rose.</p>
-								<a href="" class="btn btn-primary">Go somewhere</a>
+				<div class="row" id="Flower_name">
+					<!-- <div id="Flower_name"> -->
+						<div class="col-sm-3 ">
+							<div class="card" style="width: 18rem;">
+								<img src="../../static/daisy.jpg" class="card-img-top" alt="...">
+								<div class="card-body">
+									<h5 class="card-title">Daisy</h5>
+									<h1 style="font-weight: bold;">{{info.Flower_name}}</h1>
+									<p class="card-text">daisy is a flower.
+									which is white</p>
+									<form action ="/info">
+										<button onClick="choose('Daisy')" class="btn btn-primary" name="Daisy">For More Information</button>
+									</form>
+								</div>	
 							</div>
 						</div>
-					</div>
-					<div class="col-sm-3 ">
-						<div class="card" style="width: 18rem;">
-							<img src="../../static/dandelion.jfif" class="card-img-top" alt="...">
-							<div class="card-body">
-								<h5 class="card-title">Dandelion</h5>
-								<p class="card-text">this will give info of dandelion.</p>
-								<a href="" class="btn btn-primary">Go somewhere</a>
+						<div class="col-sm-3 ">
+							<div class="card" style="width: 18rem;">
+								<img src="../../static/rose1.jpg" class="card-img-top" alt="...">
+								<div class="card-body">
+									<h5 class="card-title">Rose</h5>
+									<p class="card-text">this will give info of yellow rose.</p>
+									<button onClick="choose('Rose')" class="btn btn-primary">For More Information</button>
+								</div>
 							</div>
 						</div>
-					</div>
-					<div class="col-sm-3 ">
-						<div class="card" style="width: 18rem;">
-							<img src="../../static/sun.jpg" class="card-img-top" alt="...">
-							<div class="card-body">
-								<h5 class="card-title">Sunflower</h5>
-								<p class="card-text">type something</p>
-								<a href="" class="btn btn-primary">Go somewhere</a>
+						<div class="col-sm-3 ">
+							<div class="card" style="width: 18rem;">
+								<img src="../../static/dandelion.jfif" class="card-img-top" alt="...">
+								<div class="card-body">
+									<h5 class="card-title">Dandelion</h5>
+									<p class="card-text">this will give info of dandelion.</p>
+									<button onClick="choose('Dandelion')" class="btn btn-primary">For More Information</button>
+								</div>
 							</div>
 						</div>
-					</div>
+						<div class="col-sm-3 ">
+							<div class="card" style="width: 18rem;">
+								<img src="../../static/sun.jpg" class="card-img-top" alt="...">
+								<div class="card-body">
+									<h5 class="card-title">Sunflower</h5>
+									<p class="card-text">type something</p>
+									<button onClick="choose('Sunflower')" class="btn btn-primary">For More Information</button>
+								</div>
+							</div>
+						</div>
+					<!-- </div> -->
 				</div>
-			 	
 		</div>
 		
 
