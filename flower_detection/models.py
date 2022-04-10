@@ -27,8 +27,9 @@ class Info(models.Model):
         return self.Flower_name
 
 class predict(models.Model):
-    Flower_name = models.CharField(max_length=50)
+    Fr_name = models.CharField(max_length=50)
     Img_pre = models.ImageField(null=True, blank=True, upload_to="pre/")
+    date = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return self.Flower_name
+        return self.Fr_name

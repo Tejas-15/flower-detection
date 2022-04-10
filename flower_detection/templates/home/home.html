@@ -1,6 +1,7 @@
 {% extends "home/base.html" %}
 {% block content %}
 {% load static %}
+
 	<head>
 		<!-- <#slider> -->
 		
@@ -71,16 +72,15 @@
 			<section id="block-block-17" class="block block-block clearfix">
 		</div>
 		<hr class="marquee-divider">
-
-
+		 
 		{% comment %} upload button {% endcomment %}
 		<div class="container ">
 			<div class="col-md-12 my-5 text-center">
- 				<form method = "post" enctype="multipart/form-data">
+				<form method="post" enctype="multipart/form-data" action="">
 					{% csrf_token %}
-					{{ form.as_p }}
-					<button type="submit">Upload</button>
-				</form>
+					{{form}}
+						<button class="btn btn-dark my-4" type="submit">Submit</button>
+				  </form>
 				
 				<div class="container">
 					<form action="/Test1">
@@ -94,51 +94,86 @@
 		<div class="container">
 			
 				<div class="row" id="Flower_name">
+					<div class="row" style="justify-content:space-around">
 					<!-- <div id="Flower_name"> -->
-						<div class="col-sm-3 ">
-							<div class="card" style="width: 18rem;">
-								<img src="../../static/daisy.jpg" class="card-img-top" alt="...">
-								<div class="card-body">
-									<h5 class="card-title">Daisy</h5>
-									<h1 style="font-weight: bold;">{{info.Flower_name}}</h1>
-									<p class="card-text">daisy is a flower.
-									which is white</p>
-									<form action ="/info">
-										<button onClick="choose('Daisy')" class="btn btn-primary" name="Daisy">For More Information</button>
-									</form>
-								</div>	
+							<div class="col-sm-3 ">
+								<div class="card" style="width: 18rem;">
+									<img src="../../static/daisy.jpg" class="card-img-top" alt="...">
+									<div class="card-body">
+										<h5 class="card-title">Daisy</h5>
+										<h1 style="font-weight: bold;">{{info.Flower_name}}</h1>
+										<p class="card-text">daisy is a flower.
+										which is white</p>
+										<form action ="/info_daisy">
+											<button onClick="choose('Daisy')" class="btn btn-primary" name="Daisy">For More Information</button>
+										</form>
+									</div>	
+								</div>
 							</div>
-						</div>
-						<div class="col-sm-3 ">
-							<div class="card" style="width: 18rem;">
-								<img src="../../static/rose1.jpg" class="card-img-top" alt="...">
-								<div class="card-body">
-									<h5 class="card-title">Rose</h5>
-									<p class="card-text">this will give info of yellow rose.</p>
-									<button onClick="choose('Rose')" class="btn btn-primary">For More Information</button>
+							<div class="col-sm-3 ">
+								<div class="card" style="width: 18rem;">
+									<img src="../../static/rose1.jpg" class="card-img-top" alt="...">
+									<div class="card-body">
+										<h5 class="card-title">Rose</h5>
+										<p class="card-text">this will give info of yellow rose.</p>
+										<form action ="/info_rose">
+											<button onClick="choose('Rose')" class="btn btn-primary" name="Rose">For More Information</button>
+										</form>
+									</div>
+								</div>
+							</div>
+							<div class="col-sm-3 ">
+								<div class="card" style="width: 18rem;">
+									<img src="../../static/dandelion.jfif" class="card-img-top" alt="...">
+									<div class="card-body">
+										<h5 class="card-title">Dandelion</h5>
+										<p class="card-text">this will give info of dandelion.</p>
+										<form action ="/info_dandelion">
+											<button onClick="choose('Dandelion')" class="btn btn-primary" name="dandelion">For More Information</button>
+										</form>
+									</div>
 								</div>
 							</div>
 						</div>
-						<div class="col-sm-3 ">
-							<div class="card" style="width: 18rem;">
-								<img src="../../static/dandelion.jfif" class="card-img-top" alt="...">
-								<div class="card-body">
-									<h5 class="card-title">Dandelion</h5>
-									<p class="card-text">this will give info of dandelion.</p>
-									<button onClick="choose('Dandelion')" class="btn btn-primary">For More Information</button>
+						<div class="row" style="justify-content:space-around">
+							<div class="col-sm-3 ">
+								<div class="card" style="width: 18rem;">
+									<img src="../../static/sun.jpg" class="card-img-top" alt="...">
+									<div class="card-body">
+										<h5 class="card-title">Sunflower</h5>
+										<p class="card-text">type something</p>
+										<form action ="/info_sunflower">
+											<button onClick="choose('Sunflower')" class="btn btn-primary" name="sunflower">For More Information</button>
+										</form>
+									</div>
+								</div>
+							</div>
+							<div class="col-sm-3 my-3">
+								<div class="card" style="width: 18rem;">
+									<img src="../../static/Tulip.jpg" class="card-img-top" alt="...">
+									<div class="card-body">
+										<h5 class="card-title">Tulip</h5>
+										<p class="card-text">this will give info of Tulip.</p>
+										<form action ="/info_tulip">
+											<button onClick="choose('Tulip')" class="btn btn-primary" name="tulip">For More Information</button>
+										</form>
+									</div>
+								</div>
+							</div>
+							<div class="col-sm-3 my-3">
+								<div class="card" style="width: 18rem;">
+									<img src="../../static/lotus.jpg" class="card-img-top" alt="...">
+									<div class="card-body">
+										<h5 class="card-title">Lotus</h5>
+										<p class="card-text">this will give info of Tulip.</p>
+										<form action ="/info_lotus">
+											<button onClick="choose('Lotus')" class="btn btn-primary" name="lotus">For More Information</button>
+										</form>
+									</div>
 								</div>
 							</div>
 						</div>
-						<div class="col-sm-3 ">
-							<div class="card" style="width: 18rem;">
-								<img src="../../static/sun.jpg" class="card-img-top" alt="...">
-								<div class="card-body">
-									<h5 class="card-title">Sunflower</h5>
-									<p class="card-text">type something</p>
-									<button onClick="choose('Sunflower')" class="btn btn-primary">For More Information</button>
-								</div>
-							</div>
-						</div>
+						
 					<!-- </div> -->
 				</div>
 		</div>

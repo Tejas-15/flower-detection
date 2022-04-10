@@ -2,12 +2,18 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 
+
+
 #models
 from .models import Info
 from .models import predict
 
 
-from .forms import *
+from .forms import predictForm
+
+
+# from .forms import predictForm
+
 
 #tenserflow
 from tensorflow.python.eager.context import context
@@ -27,39 +33,97 @@ import tensorflow as tf
 
 # Create your views here.
 def home(request):
-	p_data = predict.objects.get(pk=1)
-	global path
-	path = p_data.Img_pre
-	print(path)
-	return render(request, 'home/home.html',{'data':p_data})
+	if request.method =='POST':
+		form = predictForm(request.POST, request.FILES)
 
-def info(request):
-	return render(request, 'home/info.html')
+		if form.is_valid():
+			form.save()
+	form =	predictForm()
+	print("done")
 
-# def upload(request):
-# 	if request.method =='POST':
-# 		form = predictForm(request.POST, request.FILES)
+	return render(request, 'home/home.html',{'form':form})
 
+def info_daisy(request):
+	if request.method == 'GET':
+		f_Info = Info.objects.get(Flower_name="DAISY")
+	return render(request, 'home/info.html',{'info':f_Info})
+
+
+def info_rose(request):
+	if request.method == 'GET':
+		f_Info = Info.objects.get(Flower_name="ROSE")
+	return render(request, 'home/info.html',{'info':f_Info})
+
+def info_dandelion(request):
+	if request.method == 'GET':
+		f_Info = Info.objects.get(Flower_name="DANDELION")
+	return render(request, 'home/info.html',{'info':f_Info})
+
+def info_sunflower(request):
+	if request.method == 'GET':
+		f_Info = Info.objects.get(Flower_name="SUNFLOWER")
+	return render(request, 'home/info.html',{'info':f_Info})	
+
+def info_tulip(request):
+	if request.method == 'GET':
+		f_Info = Info.objects.get(Flower_name="TULIP")
+	return render(request, 'home/info.html',{'info':f_Info})
+
+def info_lotus(request):
+	if request.method == 'GET':
+		f_Info = Info.objects.get(Flower_name="LOTUS")
+	return render(request, 'home/info.html',{'info':f_Info})		
+
+def upload(request):
+	if request.method =='POST':
+		form = predictForm(request.POST, request.FILES)
+
+		if form.is_valid():
+			form.save()
+			return redirect('success')
+	form =	predictForm()
+	print("done")
+	return render(request, 'home/home.html',{'form':form})
+
+# def formsubmission(request):
+# 	print("hi")
+# 	form=upload()
+# 	if request.method=="POST":
+# 		form=upload(request.POST,request.FILES)
 # 		if form.is_valid():
-# 			form.save()
-# 			return redirect('success')
-# 	else:
-# 		form =	predictForm()
-# 	return render(request, 'home/home.html', {'form' : form})
+# 			handle_uploaded_file(request.FILES['file'])
+# 			return HttpResponse("File uploaded successfully")
+
+# 		else:
+# 			form=upload()
+
+	# return render(request,'home/test1.html',{'form':form})
+
+# def app_save(request):
+# 	if request.method == 'POST':
+# 		# print(request.FILES.get())
+# 		newdoc = predict(Img_pre=request.FILES['myfile'])
+# 		newdoc.save()
+
+# def index(request):
+# 	form = UploadFileForm()
+# 	return render(request, 'home/home.html', { 'form': form })
  
 def About(request):
 	return render(request, 'home/About.html')
 
-# def	data(request):
-	
-# 	# print(p_Info.Img_pre)
-# 	# print(flowername)
-# 	return render(request, 'home/about.html')
 
 def dectection(request):
+	p_data = predict.objects.last()
+	global path
+	path = p_data.Img_pre
+	print(path)
+	global a
+	a=str(path)
+	print(a)
+	print(type(a))
 	
-	
-	def predict():
+	def dectection1():
 		num_classes = 5
 
 		model = tf.keras.Sequential([
@@ -76,7 +140,7 @@ def dectection(request):
 		])
 	
 		model = load_model(r"flower_detection\flower_api_model.h5")
-		validation_image = image.load_img(r"C:\Users\tkada\OneDrive\Documents\Tejas Clg\Projects\Django_Gui\Django_Gui\media\images\rose1.jpg" , target_size=(180,180))
+		validation_image = image.load_img(r"C:/Users/tkada/OneDrive/Documents/Tejas Clg/Projects/internship/Django_Gui/media/" + a , target_size=(180,180))
 		validation_image = image.img_to_array(validation_image)
 		validation_image = np.expand_dims(validation_image,axis=0)
 		result = model.predict(validation_image)
@@ -90,16 +154,16 @@ def dectection(request):
 		global flowername
 		cn=np.argmax(y_predicted[0])
 		if cn==0 :
-			flowername =  'Daisy'
+			flowername =  'DAISY'
 		elif cn==1 :
-			flowername ='dandelion'
+			flowername ='DANDELION'
 		elif cn==2 :
-			flowername ='rose'
+			flowername ='ROSE'
 		elif cn==3 :
-			flowername = 'sunflower'
+			flowername = 'SUNFLOWER'
 		elif cn==4 :
-			flowername ='tulip'
-	predict()
+			flowername ='TULIP'
+	dectection1()
 	context = {	
 			"flower_name" : flowername
 		}
@@ -116,19 +180,3 @@ def dectection(request):
 	
 		return render(request, 'home/detected.html',{'info':f_Info})
 	
-		
-
-
-# def formsubmission(request):
-# 	print("hi")
-# 	form=upload()
-# 	if request.method=="POST":
-# 		form=upload(request.POST,request.FILES)
-# 		if form.is_valid():
-# 			handle_uploaded_file(request.FILES['file'])
-# 			return HttpResponse("File uploaded successfully")
-
-# 		else:
-# 			form=upload()
-
-	# return render(request,'home/test1.html',{'form':form})
