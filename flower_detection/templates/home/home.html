@@ -19,31 +19,23 @@
 				</div>
 				<div class="carousel-inner">
 					<div class="carousel-item active">
-						<img src="../../static/daisy-cartoon-slider.png" class="rounded mx-auto my-5 d-block w-99" alt="...">
+						<img src="../../static/dandelion-slider.jpg" class="rounded mx-auto my-5 d-block w-99" alt="...">
 						<div class="carousel-caption d-none d-md-block">
-							<h5>Daisy</h5>
-							<p>Some representative placeholder content for the first slide.</p>
 						</div>
 					</div>
 					<div class="carousel-item">
-						<img src="../../static/Sunflower-slider.png"  class="rounded mx-auto my-5 d-block w-99" alt="...">
+						<img src="../../static/sunflower-slider.jpg"  class="rounded mx-auto my-5 d-block w-99" alt="...">
 						<div class="carousel-caption d-none d-md-block">
-							<h5>Sunflower</h5>
-							<p>Some representative placeholder content for the second slide.</p>
 						</div>
 					</div>
 					<div class="carousel-item">
-						<img src="../../static/Rose-slider.png" class="rounded mx-auto my-5 d-block w-99" alt="...">
+						<img src="../../static/daisy-slider.jpeg" class="rounded mx-auto my-5 d-block w-99" alt="...">
 						<div class="carousel-caption d-none d-md-block ">
-							<h5>Rose</h5>
-							<p>Some representative placeholder content for the third slide.</p>
 						</div>
 					</div>
 					<div class="carousel-item">
-						<img src="../../static/dandelion-slider.png" class="rounded mx-auto my-5 d-block w-99" alt="...">
+						<img src="../../static/lotus-slider.jpg" class="rounded mx-auto my-5 d-block w-99" alt="...">
 						<div class="carousel-caption d-none d-md-block ">
-							<h5>dandelion</h5>
-							<p>Some representative placeholder content for the third slide.</p>
 						</div>
 					</div>
 				</div>
@@ -66,7 +58,7 @@
 		<div class="marquee">
 			<section id="block-block-12" class="block block-block clearfix">
 				<marquee direction="left">
-					<div>Welcome to Flower Detection </div>
+					<div style="font-family: 'Times New Roman', Times, serif; font-size: 20px;">Identify flowers in seconds with the click of a button on your device.</div>
 				</marquee>
 			</section>
 			<section id="block-block-17" class="block block-block clearfix">
@@ -82,16 +74,16 @@
 						<button class="btn btn-dark my-4" type="submit">Submit</button>
 				  </form>
 				
-				  {% if messages %}
-				  {% for msg in messages %}
-				  <div class = "container">
+				{% if messages %}
+				  	{% for msg in messages %}
+				  	<div class = "container">
 					  <div class="alert alert-success alert-dismissible fade show" role="alert" style="text-align: center;">
 						  <strong>Hey!</strong>{{msg}}
 						  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 					  </div>
-				  </div>
-				  {%endfor%}
-			  {% endif %}
+				  	</div>
+				  	{% endfor %}
+			  	{% endif %}
 			  <div class="container">
 				  <div class="col-md-12 my-5 text-center">
 					  <form action="/Test1">
@@ -108,12 +100,10 @@
 					<!-- <div id="Flower_name"> -->
 							<div class="col-sm-3 ">
 								<div class="card" style="width: 18rem;">
-									<img src="../../static/daisy.jpg" class="card-img-top" alt="...">
+									<img src="../../static/daisy.png" class="card-img-top" alt="...">
 									<div class="card-body">
-										<h5 class="card-title">Daisy</h5>
-										<h1 style="font-weight: bold;">{{info.Flower_name}}</h1>
-										<p class="card-text">daisy is a flower.
-										which is white</p>
+										<h5 style="font-weight: bold;" class="card-title">Daisy</h5>
+										<p class="card-text">Scientific name : BELLIS PERENNIS</p>
 										<form action ="/info_daisy">
 											<button onClick="choose('Daisy')" class="btn btn-primary" name="Daisy">For More Information</button>
 										</form>
@@ -122,10 +112,10 @@
 							</div>
 							<div class="col-sm-3 ">
 								<div class="card" style="width: 18rem;">
-									<img src="../../static/rose1.jpg" class="card-img-top" alt="...">
+									<img src="../../static/rose1.png" class="card-img-top" alt="...">
 									<div class="card-body">
-										<h5 class="card-title">Rose</h5>
-										<p class="card-text">this will give info of yellow rose.</p>
+										<h5 style="font-weight: bold;" class="card-title">Rose</h5>
+										<p class="card-text">Scientific name : ROSA</p>
 										<form action ="/info_rose">
 											<button onClick="choose('Rose')" class="btn btn-primary" name="Rose">For More Information</button>
 										</form>
@@ -134,10 +124,10 @@
 							</div>
 							<div class="col-sm-3 ">
 								<div class="card" style="width: 18rem;">
-									<img src="../../static/dandelion.jfif" class="card-img-top" alt="...">
+									<img src="../../static/dandelion.png" class="card-img-top" alt="...">
 									<div class="card-body">
-										<h5 class="card-title">Dandelion</h5>
-										<p class="card-text">this will give info of dandelion.</p>
+										<h5 style="font-weight: bold;" class="card-title">Dandelion</h5>
+										<p class="card-text">Scientific name : Taraxacum</p>
 										<form action ="/info_dandelion">
 											<button onClick="choose('Dandelion')" class="btn btn-primary" name="dandelion">For More Information</button>
 										</form>
@@ -146,12 +136,12 @@
 							</div>
 						</div>
 						<div class="row" style="justify-content:space-around">
-							<div class="col-sm-3 ">
+							<div class="col-sm-3 my-3 ">
 								<div class="card" style="width: 18rem;">
-									<img src="../../static/sun.jpg" class="card-img-top" alt="...">
+									<img src="../../static/sun.png" class="card-img-top" alt="...">
 									<div class="card-body">
-										<h5 class="card-title">Sunflower</h5>
-										<p class="card-text">type something</p>
+										<h5 style="font-weight: bold;" class="card-title">Sunflower</h5>
+										<p class="card-text">Scientific name : HELIANTHUS</p>
 										<form action ="/info_sunflower">
 											<button onClick="choose('Sunflower')" class="btn btn-primary" name="sunflower">For More Information</button>
 										</form>
@@ -160,10 +150,10 @@
 							</div>
 							<div class="col-sm-3 my-3">
 								<div class="card" style="width: 18rem;">
-									<img src="../../static/Tulip.jpg" class="card-img-top" alt="...">
+									<img src="../../static/Tulip.png" class="card-img-top" alt="...">
 									<div class="card-body">
-										<h5 class="card-title">Tulip</h5>
-										<p class="card-text">this will give info of Tulip.</p>
+										<h5 style="font-weight: bold;" class="card-title">Tulip</h5>
+										<p class="card-text">Scientific name: TULIPA</p>
 										<form action ="/info_tulip">
 											<button onClick="choose('Tulip')" class="btn btn-primary" name="tulip">For More Information</button>
 										</form>
@@ -172,10 +162,10 @@
 							</div>
 							<div class="col-sm-3 my-3">
 								<div class="card" style="width: 18rem;">
-									<img src="../../static/lotus.jpg" class="card-img-top" alt="...">
+									<img src="../../static/lotus.png" class="card-img-top" alt="...">
 									<div class="card-body">
-										<h5 class="card-title">Lotus</h5>
-										<p class="card-text">this will give info of Tulip.</p>
+										<h5 style="font-weight: bold;" class="card-title">Lotus</h5>
+										<p class="card-text">Scientific name: Nelumbo nucifera</p>
 										<form action ="/info_lotus">
 											<button onClick="choose('Lotus')" class="btn btn-primary" name="lotus">For More Information</button>
 										</form>

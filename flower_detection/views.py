@@ -42,10 +42,7 @@ def home(request):
 	form =	predictForm()
 
 	print("done")
-
 	messages.success( request, (" You have successfully uploaded the image!"))
-	return render(request, 'home/home.html',{'form':form})
-
 	return render(request, 'home/home.html',{'form':form})
 
 def info_daisy(request):
@@ -94,6 +91,8 @@ def upload(request):
 def About(request):
 	return render(request, 'home/About.html')
 
+def Help(request):
+	return render(request, 'home/Help.html')
 
 def dectection(request):
 	p_data = predict.objects.last()
