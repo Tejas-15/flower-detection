@@ -82,13 +82,23 @@
 						<button class="btn btn-dark my-4" type="submit">Submit</button>
 				  </form>
 				
-				<div class="container">
-					<form action="/Test1">
-						<button id="stat-btn" class="btn">PRESS ME </button>
-					</form>	
-				</div>
-			</div>
-		</div>	
+				  {% if messages %}
+				  {% for msg in messages %}
+				  <div class = "container">
+					  <div class="alert alert-success alert-dismissible fade show" role="alert" style="text-align: center;">
+						  <strong>Hey!</strong>{{msg}}
+						  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+					  </div>
+				  </div>
+				  {%endfor%}
+			  {% endif %}
+			  <div class="container">
+				  <div class="col-md-12 my-5 text-center">
+					  <form action="/Test1">
+						  <button id="stat-btn" class="btn btn-secondary">CLICK TO CHECK FLOWER TYPE</button>
+					  </form>
+				  </div>
+			  </div>	
 		{% comment %} cards {% endcomment %}
 			
 		<div class="container">

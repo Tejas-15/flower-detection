@@ -23,6 +23,7 @@ import numpy as np
 from keras.models import load_model
 from keras.preprocessing import image
 import tensorflow as tf
+from django.contrib import messages
 
 
 
@@ -39,7 +40,11 @@ def home(request):
 		if form.is_valid():
 			form.save()
 	form =	predictForm()
+
 	print("done")
+
+	messages.success( request, (" You have successfully uploaded the image!"))
+	return render(request, 'home/home.html',{'form':form})
 
 	return render(request, 'home/home.html',{'form':form})
 
@@ -85,29 +90,6 @@ def upload(request):
 	print("done")
 	return render(request, 'home/home.html',{'form':form})
 
-# def formsubmission(request):
-# 	print("hi")
-# 	form=upload()
-# 	if request.method=="POST":
-# 		form=upload(request.POST,request.FILES)
-# 		if form.is_valid():
-# 			handle_uploaded_file(request.FILES['file'])
-# 			return HttpResponse("File uploaded successfully")
-
-# 		else:
-# 			form=upload()
-
-	# return render(request,'home/test1.html',{'form':form})
-
-# def app_save(request):
-# 	if request.method == 'POST':
-# 		# print(request.FILES.get())
-# 		newdoc = predict(Img_pre=request.FILES['myfile'])
-# 		newdoc.save()
-
-# def index(request):
-# 	form = UploadFileForm()
-# 	return render(request, 'home/home.html', { 'form': form })
  
 def About(request):
 	return render(request, 'home/About.html')
