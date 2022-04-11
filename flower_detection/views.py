@@ -39,10 +39,13 @@ def home(request):
 
 		if form.is_valid():
 			form.save()
+			messages.success( request, (" You have successfully uploaded the image!"))
+		else:
+			messages.success( request, (" invalid input"))	
 	form =	predictForm()
 
 	print("done")
-	messages.success( request, (" You have successfully uploaded the image!"))
+	
 	return render(request, 'home/home.html',{'form':form})
 
 def info_daisy(request):
